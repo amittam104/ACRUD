@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Color Theme */
+:root {
+  --color-main: #cebea4;
+  --color-accent: #f43f5e;
+  --color-background: #0d0d0d;
+  --color-outline: #1e1e1e;
+  --color-white: #ffffff;
+  --color-placeholder: #635c52;
+  --color-divider: #857c6b;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--color-main);
+}
+
+body {
+  background-color: var(--color-background);
+}
