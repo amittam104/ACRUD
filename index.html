@@ -8,5 +8,38 @@
     <script defer type="module" src="/main.js"></script>
     <title>ACRUD</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div>
+          <h1 class="acrud-name">ACRUD</h1>
+          <div class="task-counter">5</div>
+        </div>
+        <div>
+          <form action="submit">
+            <input
+              type="text"
+              name="task-input"
+              class="task-input"
+              placeholder="Add your new task..."
+            />
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#ffffff"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"
+                ></path>
+              </svg>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="tasks"></div>
+    </div>
+  </body>
 </html>
