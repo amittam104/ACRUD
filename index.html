@@ -24,22 +24,25 @@
               placeholder="Add your new task..."
             />
             <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="#ffffff"
-                viewBox="0 0 256 256"
-              >
-                <path
-                  d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z"
-                ></path>
-              </svg>
+              <img src="img/plus-bold.svg" alt="plus icon" />
             </div>
           </form>
         </div>
       </div>
-      <div class="tasks"></div>
+      <div class="tasks">
+        <div class="task" id="task-id" data-id="123456">
+          <div class="complete-false">&nbsp;</div>
+          <p class="task-text" id="task-text">Your first task</p>
+          <div class="update-delete">
+            <div id="update-icon">
+              <img src="img/note-pencil-bold.svg" alt="edit icon" />
+            </div>
+            <div id="delete-icon">
+              <img src="img/x-circle-bold.svg" alt="close icon" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
