@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+Process-breakdown.md
 
 # Editor directories and files
 .vscode/*
