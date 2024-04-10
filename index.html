@@ -11,28 +11,31 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
     <script defer type="module" src="/main.js"></script>
     <title>ACRUD</title>
   </head>
   <body>
     <div class="container inter-font">
       <div class="header">
-        <div>
-          <h1 class="acrud-name">ACRUD</h1>
+        <div class="header-box">
+          <h1 class="acrud-name"><span>A</span>CRUD</h1>
           <div class="task-counter">5</div>
         </div>
-        <div>
-          <form action="submit">
-            <input
-              type="text"
-              name="task-input"
-              class="task-input"
-              placeholder="Add your new task..."
-            />
-            <div>
-              <img src="img/plus-bold.svg" alt="plus icon" />
-            </div>
-          </form>
+        <div class="task-input-box">
+          <input
+            type="text"
+            name="task-input"
+            id="task-input"
+            placeholder="Add your new task..."
+          />
+
+          <button class="btn-input">
+            <img src="img/plus-bold.svg" alt="plus icon" />
+          </button>
         </div>
       </div>
       <div class="tasks">

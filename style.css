@@ -15,18 +15,9 @@
   --color-divider: #857c6b;
 }
 
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900 */
-
-.inter-font {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
-}
-
 html {
+  font-family: "Inter", sans-serif;
+
   font-size: 62.5%;
   line-height: 1;
   font-weight: 400;
@@ -35,4 +26,77 @@ html {
 
 body {
   background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  max-width: 75rem;
+}
+
+/* Header Box */
+.header-box {
+  width: 70rem;
+  height: 18rem;
+  max-height: 20rem;
+  padding: 6rem 8rem;
+  border: 2px solid var(--color-main);
+  border-radius: 4rem;
+  margin-bottom: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.acrud-name {
+  font-family: "Oswald", sans-serif;
+  font-size: 5.4rem;
+  color: var(--color-accent);
+}
+
+.acrud-name span {
+  color: var(--color-main);
+}
+.task-counter {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-accent);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Task Input Form */
+.task-input-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+#task-input {
+  width: 90%;
+  height: 4.8rem;
+  padding: 2rem;
+  outline: var(--color-main);
+  border: 2px solid var(--color-main);
+  border-radius: 2rem;
+  background: var(--color-outline);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+#task-input ::placeholder {
+}
+
+.btn-input {
 }
