@@ -9,6 +9,7 @@ client
 
 const db = new Databases(client);
 const tasks = document.querySelector(".tasks");
+const taskCounter = document.querySelector(".task-counter");
 
 const getTasks = async function () {
   try {
@@ -19,7 +20,12 @@ const getTasks = async function () {
 
     const tasksList = response.documents;
 
+    // Update Task Number Counter
+    taskCounter.textContent = tasksList.length;
+
     console.log(tasksList);
+
+    // Get Each one of the task
     tasksList.forEach((task) => {
       let html = `
       <div class="task" id="task-${task.$id}" data-id="${task.$id}">
@@ -45,6 +51,7 @@ const getTasks = async function () {
         </div>
     </div>`;
 
+      // Render Each one of the task
       tasks.insertAdjacentHTML("beforeBegin", html);
     });
   } catch (err) {
