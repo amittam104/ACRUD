@@ -112,3 +112,10 @@ const addTask = async function () {
 
 // Input button event listner
 btnInput.addEventListener("click", addTask);
+
+// Enter button event listner to add task
+taskInput.addEventListener("keydown", function (e) {
+  if (e.code === "Enter" || e.code === "NumpadEnter") {
+    addTask();
+  }
+});
