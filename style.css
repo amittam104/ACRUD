@@ -137,7 +137,7 @@ body {
   gap: 1rem;
 }
 
-.select-icon {
+.complete-false {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
@@ -145,9 +145,9 @@ body {
   background-color: var(--color-outline);
 }
 
-.completed {
+/* .completed {
   background-color: var(--color-accent);
-}
+} */
 
 .update-delete {
   display: flex;
@@ -157,4 +157,16 @@ body {
 
 .task-icon {
   width: 2rem;
+}
+
+#text-true {
+  text-decoration: line-through;
+}
+
+.complete-true {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  background-color: var(--color-accent);
 }

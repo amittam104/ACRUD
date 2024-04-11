@@ -35,12 +35,11 @@ getTasks();
 
 // Render Tasks
 const renderTasks = async function (task) {
-  console.log(task);
   let html = `
       <div class="task" id="task-${task.$id}" data-id="${task.$id}">
         <div class="task-select">
-          <div class="complete-${task.status} select-icon">&nbsp;</div>
-          <p class="task-text">${task.body}</p>
+          <div class="complete-${task.status}" id="complete-${task.status}">&nbsp;</div>
+          <p class="task-text" id="text-${task.status}">${task.body}</p>
         </div>
         <div class="update-delete">
           <div id="update-${task.$id}">
@@ -64,8 +63,10 @@ const renderTasks = async function (task) {
   tasks.insertAdjacentHTML("afterBegin", html);
 
   const deleteTask = document.getElementById(`delete-${task.$id}`);
-  const TaskWrapper = document.getElementById(`task-${task.$id}`);
+  const taskWrapper = document.getElementById(`task-${task.$id}`);
+  const statusTask = document.getElementById(`complete-${task.status}`);
 
+  // Delete Task
   deleteTask.addEventListener("click", async function () {
     await db.deleteDocument(
       import.meta.env.VITE_APPWRITE_DATABASE_ID,
@@ -73,7 +74,22 @@ const renderTasks = async function (task) {
       task.$id
     );
 
-    TaskWrapper.remove();
+    taskWrapper.remove();
+  });
+
+  // Complete/Inprogress Task
+  statusTask.addEventListener("click", async function (e) {
+    task.status = !task.status;
+
+    e.target.className = `complete-${task.status}`;
+    e.target.nextElementSibling.id = `text-${task.status}`;
+
+    await db.updateDocument(
+      import.meta.env.VITE_APPWRITE_DATABASE_ID,
+      import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+      task.$id,
+      { status: task.status }
+    );
   });
 };
 
