@@ -35,6 +35,7 @@ getTasks();
 
 // Render Tasks
 const renderTasks = async function (task) {
+  console.log(task);
   let html = `
       <div class="task" id="task-${task.$id}" data-id="${task.$id}">
         <div class="task-select">
@@ -42,7 +43,7 @@ const renderTasks = async function (task) {
           <p class="task-text">${task.body}</p>
         </div>
         <div class="update-delete">
-          <div id="update-icon">
+          <div id="update-${task.$id}">
             <img
               class="task-icon"
               src="img/note-pencil-bold.svg"
@@ -57,10 +58,23 @@ const renderTasks = async function (task) {
             />
           </div>
         </div>
-    </div>`;
+      </div>`;
 
   // Render Each one of the task
   tasks.insertAdjacentHTML("afterBegin", html);
+
+  const deleteTask = document.getElementById(`delete-${task.$id}`);
+  const TaskWrapper = document.getElementById(`task-${task.$id}`);
+
+  deleteTask.addEventListener("click", async function () {
+    await db.deleteDocument(
+      import.meta.env.VITE_APPWRITE_DATABASE_ID,
+      import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+      task.$id
+    );
+
+    TaskWrapper.remove();
+  });
 };
 
 // Add task function
@@ -74,6 +88,7 @@ const addTask = async function () {
     );
 
     renderTasks(response);
+    taskInput.value = "";
   } catch (err) {
     console.error(err);
   }
