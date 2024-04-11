@@ -161,6 +161,7 @@ body {
 
 #text-true {
   text-decoration: line-through;
+  text-decoration-thickness: 1.3px;
 }
 
 .complete-true {
