@@ -7,11 +7,18 @@ client
   .setEndpoint(import.meta.env.VITE_APPWRITE_URL)
   .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
 
+// Declare dom element variables
 const db = new Databases(client);
 const tasks = document.querySelector(".tasks");
 const taskCounter = document.querySelector(".task-counter");
 const taskInput = document.getElementById("task-input");
 const btnInput = document.querySelector(".btn-input");
+const btnSignUp = document.querySelector(".btn-signup");
+const btnLogIn = document.querySelector(".btn-login");
+const containerSignUp = document.querySelector(".popup-signup");
+const containerLogIn = document.querySelector(".popup-login");
+const containerApp = document.querySelector(".container-app");
+const btnNav = document.querySelector(".btn-nav");
 
 // Fetch Tasks from Appwrite backed
 const getTasks = async function () {
@@ -175,4 +182,15 @@ taskInput.addEventListener("keydown", function (e) {
   if (e.code === "Enter" || e.code === "NumpadEnter") {
     addTask();
   }
+});
+
+// Signup and Log in form Modal
+btnSignUp.addEventListener("click", function () {
+  containerSignUp.classList.toggle("hidden");
+  containerApp.classList.toggle("blur");
+});
+
+btnLogIn.addEventListener("click", function () {
+  containerLogIn.classList.toggle("hidden");
+  containerApp.classList.toggle("blur");
 });

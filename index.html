@@ -19,27 +19,35 @@
     <title>ACRUD</title>
   </head>
   <body>
-    <div class="container inter-font">
-      <div class="header">
-        <div class="header-box">
-          <h1 class="acrud-name"><span>A</span>CRUD</h1>
-          <div class="task-counter">0</div>
+    <div class="container">
+      <nav class="nav">
+        <div class="acrud-nav-name"><span>A</span>CRUD</div>
+        <div class="nav-buttons">
+          <button class="btn btn-nav btn-login">Log in</button
+          ><button class="btn btn-nav btn-signup">Sign up</button>
         </div>
-        <div class="task-input-box">
-          <input
-            type="text"
-            name="task-input"
-            id="task-input"
-            placeholder="Add your new task..."
-          />
+      </nav>
+      <div class="container-app">
+        <div class="header">
+          <div class="header-box">
+            <h1 class="acrud-name"><span>A</span>CRUD</h1>
+            <div class="task-counter">0</div>
+          </div>
+          <div class="task-input-box">
+            <input
+              type="text"
+              name="task-input"
+              id="task-input"
+              placeholder="Add your new task..."
+            />
 
-          <button class="btn-input">
-            <img class="add-icon" src="img/plus-bold.svg" alt="plus icon" />
-          </button>
+            <button class="btn-input">
+              <img class="add-icon" src="img/plus-bold.svg" alt="plus icon" />
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="tasks">
-        <!-- <div class="task" id="task-id" data-id="123456">
+        <div class="tasks">
+          <!-- <div class="task" id="task-id" data-id="123456">
           <div class="task-select">
             <div class="complete-false select-icon">&nbsp;</div>
             <p class="task-text" id="task-text">Task 1</p>
@@ -62,6 +70,74 @@
             </div>
           </div>
         </div> -->
+        </div>
+      </div>
+      <div class="popup popup-signup hidden">
+        <h2 class="header-account header-account--signup">Sign Up</h2>
+        <form action="submit" class="form-signup">
+          <div class="label-input label-input--name">
+            <label for="name" class="label" id="label-name"
+              >Enter your name</label
+            >
+            <input
+              type="text"
+              class="input"
+              id="name"
+              placeholder="Your Name"
+            />
+          </div>
+          <div class="label-input label-input--email">
+            <label for="email" class="label" id="label-email"
+              >Enter your Email Id</label
+            >
+            <input
+              type="email"
+              class="input"
+              id="email"
+              placeholder="your@email.com"
+            />
+          </div>
+          <div class="label-input label-input--password">
+            <label for="password" class="label" id="label-password"
+              >Enter a Password</label
+            >
+            <input
+              type="password"
+              class="input"
+              id="password"
+              placeholder="min 8 charactes"
+            />
+          </div>
+          <button class="btn btn-submit btn-submit--signup">Submit</button>
+        </form>
+      </div>
+      <div class="popup popup-login hidden">
+        <h2 class="header-account header-account--signup">Log in</h2>
+        <form action="submit" class="form-login">
+          <div class="label-input label-input--email">
+            <label for="email" class="label" id="label-email"
+              >Enter your Email Id</label
+            >
+            <input
+              type="email"
+              class="input"
+              id="email"
+              placeholder="your@email.com"
+            />
+          </div>
+          <div class="label-input label-input--password">
+            <label for="password" class="label" id="label-password"
+              >Enter your Password</label
+            >
+            <input
+              type="password"
+              class="input"
+              id="password"
+              placeholder="ACRUD Password"
+            />
+          </div>
+          <button class="btn btn-submit btn-submit--signup">Submit</button>
+        </form>
       </div>
     </div>
   </body>
