@@ -40,7 +40,7 @@ const renderTasks = async function (task) {
       <div class="task" id="task-${task.$id}" data-id="${task.$id}">
         <div class="task-select">
           <div class="complete-${task.status}" id="complete-${task.status}">&nbsp;</div>
-          <p class="task-text" id="text-${task.status}">${task.body}</p>
+          <p class="task-text task-text-${task.$id}" id="text-${task.status}">${task.body}</p>
         </div>
         <div class="update-delete">
           <div id="update-${task.$id}">
@@ -48,6 +48,7 @@ const renderTasks = async function (task) {
               class="task-icon"
               src="img/note-pencil-bold.svg"
               alt="edit icon"
+              id="update-icon-${task.$id}"
             />
           </div>
           <div id="delete-${task.$id}">
@@ -67,6 +68,7 @@ const renderTasks = async function (task) {
   const deleteTask = document.getElementById(`delete-${task.$id}`);
   const taskWrapper = document.getElementById(`task-${task.$id}`);
   const statusTask = document.getElementById(`complete-${task.status}`);
+  const updateTask = document.getElementById(`update-${task.$id}`);
 
   // Delete Task
   deleteTask.addEventListener("click", async function () {
@@ -83,6 +85,46 @@ const renderTasks = async function (task) {
     } catch (err) {
       console.error(err);
     }
+  });
+
+  // Update Task
+  updateTask.addEventListener("click", async function (e) {
+    let updateInputHTML = `
+    <input
+      type="text"
+      name="update-task-input"
+      class="update-task-text"
+      id="update-task-${task.$id}"
+      placeholder="Update your task..."
+    />
+    
+  `;
+
+    const taskText =
+      e.target.parentElement.parentElement.parentElement.firstElementChild
+        .lastElementChild;
+
+    taskText.innerHTML = updateInputHTML;
+
+    const updateTaskInput = document.getElementById(`update-task-${task.$id}`);
+    updateTaskInput.value = `${task.body}`;
+
+    // console.log(updateTaskInput.value);
+
+    updateTaskInput.addEventListener("keydown", async function (e) {
+      if (e.code === "Enter" || e.code === "NumpadEnter") {
+        task.body = updateTaskInput.value;
+        console.log(task.body);
+
+        taskText.innerHTML = task.body;
+        await db.updateDocument(
+          import.meta.env.VITE_APPWRITE_DATABASE_ID,
+          import.meta.env.VITE_APPWRITE_COLLECTION_ID,
+          task.$id,
+          { body: `${task.body}` }
+        );
+      }
+    });
   });
 
   // Update the status of the task (Completed or in Progress)

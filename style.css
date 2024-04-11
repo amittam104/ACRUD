@@ -171,3 +171,16 @@ body {
   border: 1px solid var(--color-accent);
   background-color: var(--color-accent);
 }
+
+.update-task-text {
+  width: 200%;
+  height: 4rem;
+  padding: 2rem;
+  outline: var(--color-placeholder);
+  border: 2px solid var(--color-placeholder);
+  color: var(--color-main);
+  border-radius: 1.4rem;
+  background: var(--color-outline);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
