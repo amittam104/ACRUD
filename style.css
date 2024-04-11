@@ -29,7 +29,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 /* Header */
@@ -37,6 +37,7 @@ body {
   max-width: 75rem;
   padding-bottom: 4rem;
   margin-bottom: 4rem;
+  margin-top: 4rem;
   border-bottom: 0.05px solid var(--color-divider);
 }
 
