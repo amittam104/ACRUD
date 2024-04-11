@@ -23,9 +23,6 @@ const getTasks = async function () {
 
     const tasksList = response.documents;
 
-    // Update Task Number Counter
-    taskCounter.textContent = tasksList.length;
-
     tasksList.forEach((task) => renderTasks(task));
   } catch (err) {
     console.error(err);
@@ -82,6 +79,7 @@ const renderTasks = async function (task) {
 
       // Update UI
       taskWrapper.remove();
+      taskCounter.textContent--;
     } catch (err) {
       console.error(err);
     }
@@ -147,6 +145,9 @@ const renderTasks = async function (task) {
       console.error(err);
     }
   });
+
+  // Update Task Number Counter
+  taskCounter.textContent = tasks.childElementCount;
 };
 
 // Add task function
