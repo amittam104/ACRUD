@@ -14,14 +14,23 @@ const db = new Databases(client);
 const tasks = document.querySelector(".tasks");
 const taskCounter = document.querySelector(".task-counter");
 const taskInput = document.getElementById("task-input");
+const emailSignUp = document.querySelector("#email");
+const passwordSignUp = document.querySelector("#password");
+const NameSignUp = document.querySelector("#name");
+// const emailLogIn = document.querySelector("");
+// const passwordLogIn = document.querySelector("");
+
 const btnInput = document.querySelector(".btn-input");
 const btnSignUp = document.querySelector(".btn-signup");
 const btnLogIn = document.querySelector(".btn-login");
+const btnCloseSignUp = document.querySelector(".close-signup");
+const btnCloseLogIn = document.querySelector(".close-login");
+const btnSubmitSignUp = document.querySelector(".btn-submit--signup");
+// const btnSubmitLogIn = document.querySelector("");
+
 const containerSignUp = document.querySelector(".popup-signup");
 const containerLogIn = document.querySelector(".popup-login");
 const containerApp = document.querySelector(".container-app");
-const btnCloseSignUp = document.querySelector(".close-signup");
-const btnCloseLogIn = document.querySelector(".close-login");
 
 // Create account
 
@@ -29,9 +38,9 @@ const createAccount = async function () {
   try {
     const response = await account.create(
       ID.unique(),
-      "amittambulkar104@gmail.com",
-      "At9011044878?",
-      "Amit Tambulkar"
+      String(emailSignUp.value),
+      String(passwordSignUp.value),
+      String(NameSignUp.value)
     );
 
     console.log(response);
@@ -39,7 +48,13 @@ const createAccount = async function () {
     console.error(error);
   }
 };
-createAccount();
+
+btnSubmitSignUp.addEventListener("click", function (e) {
+  e.preventDefault();
+  // console.log(emailSignUp.value, passwordSignUp.value, NameSignUp.value);
+  createAccount();
+});
+
 // Fetch Tasks from Appwrite backed
 const getTasks = async function () {
   try {
