@@ -1,14 +1,16 @@
 import "./style.css";
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, ID, Account } from "appwrite";
 
 const client = new Client();
+const account = new Account(client);
 
 client
   .setEndpoint(import.meta.env.VITE_APPWRITE_URL)
   .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
 
-// Declare dom element variables
 const db = new Databases(client);
+
+// Declare dom element variables
 const tasks = document.querySelector(".tasks");
 const taskCounter = document.querySelector(".task-counter");
 const taskInput = document.getElementById("task-input");
@@ -21,6 +23,23 @@ const containerApp = document.querySelector(".container-app");
 const btnCloseSignUp = document.querySelector(".close-signup");
 const btnCloseLogIn = document.querySelector(".close-login");
 
+// Create account
+
+const createAccount = async function () {
+  try {
+    const response = await account.create(
+      ID.unique(),
+      "amittambulkar104@gmail.com",
+      "At9011044878?",
+      "Amit Tambulkar"
+    );
+
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+};
+createAccount();
 // Fetch Tasks from Appwrite backed
 const getTasks = async function () {
   try {
