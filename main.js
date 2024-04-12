@@ -17,8 +17,8 @@ const taskInput = document.getElementById("task-input");
 const emailSignUp = document.querySelector("#email");
 const passwordSignUp = document.querySelector("#password");
 const NameSignUp = document.querySelector("#name");
-// const emailLogIn = document.querySelector("");
-// const passwordLogIn = document.querySelector("");
+const emailLogIn = document.querySelector("#login-email");
+const passwordLogIn = document.querySelector("#login-password");
 
 const btnInput = document.querySelector(".btn-input");
 const btnSignUp = document.querySelector(".btn-signup");
@@ -26,7 +26,7 @@ const btnLogIn = document.querySelector(".btn-login");
 const btnCloseSignUp = document.querySelector(".close-signup");
 const btnCloseLogIn = document.querySelector(".close-login");
 const btnSubmitSignUp = document.querySelector(".btn-submit--signup");
-// const btnSubmitLogIn = document.querySelector("");
+const btnSubmitLogIn = document.querySelector(".btn-submit--login");
 
 const containerSignUp = document.querySelector(".popup-signup");
 const containerLogIn = document.querySelector(".popup-login");
@@ -38,9 +38,9 @@ const createAccount = async function () {
   try {
     const response = await account.create(
       ID.unique(),
-      String(emailSignUp.value),
-      String(passwordSignUp.value),
-      String(NameSignUp.value)
+      emailSignUp.value,
+      passwordSignUp.value,
+      NameSignUp.value
     );
 
     console.log(response);
@@ -53,6 +53,25 @@ btnSubmitSignUp.addEventListener("click", function (e) {
   e.preventDefault();
   // console.log(emailSignUp.value, passwordSignUp.value, NameSignUp.value);
   createAccount();
+});
+
+const userLogIn = async function () {
+  try {
+    const response = await account.createEmailSession(
+      String(emailLogIn.value),
+      String(passwordLogIn.value)
+    );
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+btnSubmitLogIn.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log(emailLogIn.value);
+  console.log(passwordLogIn.value);
+  userLogIn();
 });
 
 // Fetch Tasks from Appwrite backed
