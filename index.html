@@ -73,7 +73,10 @@
         </div>
       </div>
       <div class="popup popup-signup hidden">
-        <h2 class="header-account header-account--signup">Sign Up</h2>
+        <div class="popup-header popup-header-signup">
+          <h2 class="header-account header-account--signup">Sign Up</h2>
+          <p class="close close-signup">x</p>
+        </div>
         <form action="submit" class="form-signup">
           <div class="label-input label-input--name">
             <label for="name" class="label" id="label-name"
@@ -112,7 +115,10 @@
         </form>
       </div>
       <div class="popup popup-login hidden">
-        <h2 class="header-account header-account--signup">Log in</h2>
+        <div class="popup-header popup-header-login">
+          <h2 class="header-account header-account--login">Log in</h2>
+          <p class="close close-login">x</p>
+        </div>
         <form action="submit" class="form-login">
           <div class="label-input label-input--email">
             <label for="email" class="label" id="label-email"
@@ -121,7 +127,7 @@
             <input
               type="email"
               class="input"
-              id="email"
+              id="login-email"
               placeholder="your@email.com"
             />
           </div>
@@ -132,7 +138,7 @@
             <input
               type="password"
               class="input"
-              id="password"
+              id="login-password"
               placeholder="ACRUD Password"
             />
           </div>

@@ -18,7 +18,8 @@ const btnLogIn = document.querySelector(".btn-login");
 const containerSignUp = document.querySelector(".popup-signup");
 const containerLogIn = document.querySelector(".popup-login");
 const containerApp = document.querySelector(".container-app");
-const btnNav = document.querySelector(".btn-nav");
+const btnCloseSignUp = document.querySelector(".close-signup");
+const btnCloseLogIn = document.querySelector(".close-login");
 
 // Fetch Tasks from Appwrite backed
 const getTasks = async function () {
@@ -186,11 +187,28 @@ taskInput.addEventListener("keydown", function (e) {
 
 // Signup and Log in form Modal
 btnSignUp.addEventListener("click", function () {
+  btnSignUp.disabled = true;
+  btnLogIn.disabled = true;
   containerSignUp.classList.toggle("hidden");
   containerApp.classList.toggle("blur");
 });
 
 btnLogIn.addEventListener("click", function () {
+  btnSignUp.disabled = true;
+  btnLogIn.disabled = true;
   containerLogIn.classList.toggle("hidden");
   containerApp.classList.toggle("blur");
+});
+
+btnCloseSignUp.addEventListener("click", function () {
+  btnSignUp.disabled = false;
+  btnLogIn.disabled = false;
+  containerSignUp.classList.add("hidden");
+  containerApp.classList.remove("blur");
+});
+btnCloseLogIn.addEventListener("click", function () {
+  btnSignUp.disabled = false;
+  btnLogIn.disabled = false;
+  containerLogIn.classList.add("hidden");
+  containerApp.classList.remove("blur");
 });
