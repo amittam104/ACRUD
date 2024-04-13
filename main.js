@@ -87,6 +87,11 @@ const userLogIn = async function () {
       String(passwordLogIn.value)
     );
     console.log(response);
+
+    if (response.status === true) {
+      btnSignUp.classList.add("hidden");
+      btnLogIn.classList.add("hidden");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -99,6 +104,13 @@ btnSubmitLogIn.addEventListener("click", function (e) {
   userLogIn();
 });
 
+// Logout current user
+
+const userLogOut = async function () {
+  const response = account.deleteSession("current");
+};
+
+userLogOut();
 // Fetch Tasks from Appwrite backed
 const getTasks = async function () {
   try {
