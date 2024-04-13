@@ -195,6 +195,19 @@ body {
   box-shadow: 2px 2px 25px var(--color-shadow-hover);
 }
 
+.signup-message {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 2.2rem;
+}
+
+.signup-message--error {
+  color: var(--color-accent-hover);
+}
+.signup-message--success {
+  color: var(--color-white);
+}
+
 /* Header Box */
 .header-box {
   width: 70rem;

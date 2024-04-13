@@ -32,6 +32,9 @@ const containerSignUp = document.querySelector(".popup-signup");
 const containerLogIn = document.querySelector(".popup-login");
 const containerApp = document.querySelector(".container-app");
 
+const formSignUp = document.querySelector(".form-signup");
+const signUpMessage = document.querySelector(".signup-message");
+
 // Create account
 
 const createAccount = async function () {
@@ -43,9 +46,30 @@ const createAccount = async function () {
       NameSignUp.value
     );
 
+    if (!response) {
+      let SignUpError = `
+      <p class="signup-message signup-message--error">Something went wrong. Please try again!</p>
+      `;
+      btnSubmitSignUp.insertAdjacentHTML("afterend", SignUpError);
+
+      throw new Error(`Something went wrong. Please try again!`);
+    }
+
+    if (response.status === true) {
+      let SignUpSuccess = `
+      <p class="signup-message signup-message--success">Congratulations! Your account is created.</p>
+      `;
+      btnSubmitSignUp.insertAdjacentHTML("afterend", SignUpSuccess);
+    }
+
     console.log(response);
   } catch (error) {
     console.error(error);
+
+    let SignUpError = `
+      <p class="signup-message signup-message--error">Something went wrong. User Account already exsist.</p>
+      `;
+    btnSubmitSignUp.insertAdjacentHTML("afterend", SignUpError);
   }
 };
 
@@ -53,6 +77,7 @@ btnSubmitSignUp.addEventListener("click", function (e) {
   e.preventDefault();
   // console.log(emailSignUp.value, passwordSignUp.value, NameSignUp.value);
   createAccount();
+  formSignUp.reset();
 });
 
 const userLogIn = async function () {
@@ -259,6 +284,7 @@ btnCloseSignUp.addEventListener("click", function () {
   containerSignUp.classList.add("hidden");
   containerApp.classList.remove("blur");
 });
+
 btnCloseLogIn.addEventListener("click", function () {
   btnSignUp.disabled = false;
   btnLogIn.disabled = false;
