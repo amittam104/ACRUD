@@ -110,7 +110,7 @@ const userLogOut = async function () {
   const response = account.deleteSession("current");
 };
 
-userLogOut();
+// userLogOut();
 // Fetch Tasks from Appwrite backed
 const getTasks = async function () {
   try {
