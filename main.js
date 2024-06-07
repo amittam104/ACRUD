@@ -141,7 +141,7 @@ const renderTasks = async function (task) {
           <div id="update-${task.$id}">
             <img
               class="task-icon"
-              src="img/note-pencil-bold.svg"
+              src="./img/note-pencil-bold.svg"
               alt="edit icon"
               id="update-icon-${task.$id}"
             />
@@ -149,7 +149,7 @@ const renderTasks = async function (task) {
           <div id="delete-${task.$id}">
             <img
               class="task-icon"
-              src="img/x-circle-bold.svg"
+              src="./img/x-circle-bold.svg"
               alt="close icon"
             />
           </div>
